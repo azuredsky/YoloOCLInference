@@ -2,6 +2,8 @@
 
 A very light weight inference engine of 'tiny-yolo' object detection system for OpenCL based graphics cards/devices. For original work, ideas and implementation, refer to main author's page [here](https://pjreddie.com/darknet/)
 
+![alt text](https://github.com/sat8/YoloOCLInference/blob/master/frame_000006.jpg) 
+
 ## Background
 This project has been deveoped to adapt 'tiny-YOlO' object detection system for OpenCL enabled hardware and extend the inference engine to support FP16 and INT8 versions of target models in the future. The original implementation of YOLO & its variants specifically target NVIDIA cards and there have been many efforts to [make YOLO a part of well known deep neural network frameworks](https://www.google.co.uk/search?rlz=1C1CHBD_en-GBGB743GB743&q=tensorflow+yolo&spell=1&sa=X&ved=0ahUKEwip3fKSkN_WAhXmBsAKHX7oB-EQvwUIJSgA&biw=1920&bih=974) so that OpenCL enabled devices can be supported. The [original implementation](https://github.com/pjreddie/darknet) is an excellent reference point for someone to get started but both training and inference are inter-twined there by creating some room for optimization in inference logic, especially for 'tiny-yolo' variant. Additionally, support for tiny-YOLO in OpenCL was also something many folks would be interested in and hence YoloOCLInference is mainly written to detach the inference engine from the training logic and thereby making the engine simple, more focused towards performance & optimization.  
 
