@@ -1,6 +1,6 @@
 # YoloOCLInference
 
-A very light weight inference engine of 'tiny-yolo' object detection system for OpenCL based graphics cards/devices. For original work, ideas and implementation, refer to main author's page [here](https://pjreddie.com/darknet/)
+A very light weight inference engine of 'tiny-yolo' object detection system for OpenCL based graphics cards/devices. For original work, and CUDA implementation, refer to main author's page [here](https://pjreddie.com/darknet/).
 
 Output with display enabled|
 :-------------------------:|
