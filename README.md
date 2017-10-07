@@ -68,7 +68,7 @@ If you want to let the engine free-flow without any display or saving options, t
 Command: The relvant command in this case is
 > YoloOCLInference.exe -input pedestrians.jpg -display 0 -save 0
  
- 
+ ![alt text](https://github.com/sat8/YoloOCLInference/blob/master/Capture.PNG)
 
 ## Limitations
 
