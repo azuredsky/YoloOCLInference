@@ -75,6 +75,8 @@ The **3rdparty** folder contains readily usable headers & libraries hatare requi
  > YoloOCLInference.exe -input pedestrians.jpg -display 1 -save 0
  
 The above command will make the executable load 'pedestrians.jpg' image available in build directory and run inference on it. Here, the output display is enabled with option **-display 1**, so an OpenCV window will display the detected output as above. Notice that **-save** option is set to 0, meaning the detected output frames will not be saved to fisk. In case the **-save** option is set to 1, the frames with detections will be written to disk in a folder named **output** within build directory.
+
+Supposing the display option is enabled, the OpenCV output window will pause for user input before proceeding onto running inference in next iteration.
  
 If you want to let the engine free-flow without any display or saving options, the benchmarks reported here can be reproduced. 
 Command: The relvant command in this case is
@@ -83,9 +85,25 @@ Command: The relvant command in this case is
  
 ## Limitations
 
+Following are some of the limitations in YoloOCLInference application
+* Presently, only windows environment is supported
+* Only single image input is supported. Neither batch input nor video file input is possible.
+* The application analyses the same image in a sequence for 1000 iterations. There are no control settings available.
+* Object labels/classes are not displayed near the detections overlayed
+* Sometimes, the application crashes on termination after printing the inference statistics (time & speed). 
+* Sometimes, there is a scaling/shift error on the bounding boxes overlaid around objects.
+
 ## Future work
+* Support cross compilation in Linux & Windows using CMake
+* Support Video file and folder/batch input of images
+* Support storing output video to disk
+* Build a reusable API that supports RAW image input and file input (both video & image). The RAW image input is expected to be very useful in feeding hardware accelerated decoder output from either the same GPU (NVIDIA, AMD, ARM chips) or host CPU (Intel Quick Sync).
 
 ## Acknowledgements
+Thanks to the following repos & their authors for their work & support.
+https://github.com/pjreddie/darknet
+https://github.com/CNugteren/CLBlast
+https://github.com/AlexeyAB/darknet
 
 
 
