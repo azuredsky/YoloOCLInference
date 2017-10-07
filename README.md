@@ -2,6 +2,8 @@
 
 A very light weight inference engine of 'tiny-yolo' object detection system for OpenCL based graphics cards/devices. For original work, ideas and implementation, refer to main author's page [here](https://pjreddie.com/darknet/)
 
+Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
 ![alt text](https://github.com/sat8/YoloOCLInference/blob/master/frame_000006.jpg) **Example output with display enabled**
 ![alt text](https://github.com/sat8/YoloOCLInference/blob/master/Capture.PNG) **Command line output with display disabled**
 
