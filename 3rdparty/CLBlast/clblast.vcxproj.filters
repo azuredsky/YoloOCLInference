@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\database\database.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\common.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\utilities\clblast_exceptions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\utilities\utilities.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\cache.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\clblast.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\clblast_c.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\levelx\xinvert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level1\xswap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level1\xscal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level1\xcopy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level1\xaxpy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level1\xdot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level1\xdotu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level1\xdotc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level1\xnrm2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level1\xasum.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level1\xamax.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xgemv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xgbmv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xhemv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xhbmv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xhpmv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xsymv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xsbmv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xspmv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xtrmv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xtbmv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xtpmv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xtrsv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xgeru.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xgerc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xhpr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xher2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xhpr2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xsyr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xspr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xsyr2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level2\xspr2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level3\xgemm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level3\xsymm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level3\xhemm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level3\xsyrk.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level3\xherk.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level3\xsyr2k.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level3\xher2k.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level3\xtrmm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\level3\xtrsm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\levelx\xomatcopy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\levelx\xim2col.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\levelx\xaxpybatched.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GPU Code\CLBlast\src\routines\levelx\xgemmbatched.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\GPU Code\CLBlast\include\clblast.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\include\clblast_c.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\include\clblast_half.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\apple_cpu_fallback.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\database.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\database_structure.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernel_selection.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level1\xamin.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level1\xmax.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level1\xmin.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level1\xsum.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\common.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\utilities\buffer_test.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\utilities\clblast_exceptions.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\utilities\device_mapping.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\utilities\msvc.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\utilities\utilities.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\cache.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\clpp11.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\cxpp11_common.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routine.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level1\xswap.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level1\xscal.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level1\xcopy.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level1\xaxpy.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level1\xdot.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level1\xdotu.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level1\xdotc.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level1\xnrm2.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level1\xasum.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level1\xamax.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xgemv.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xgbmv.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xhemv.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xhbmv.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xhpmv.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xsymv.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xsbmv.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xspmv.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xtrmv.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xtbmv.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xtpmv.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xtrsv.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xger.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xgeru.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xgerc.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xher.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xhpr.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xher2.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xhpr2.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xsyr.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xspr.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xsyr2.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level2\xspr2.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level3\xgemm.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level3\xsymm.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level3\xhemm.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level3\xsyrk.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level3\xherk.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level3\xsyr2k.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level3\xher2k.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level3\xtrmm.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\level3\xtrsm.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\levelx\xomatcopy.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\levelx\xim2col.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\levelx\xaxpybatched.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\routines\levelx\xgemmbatched.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\copy\copy.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\copy\copy_16.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\copy\copy_32.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\copy\copy_64.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\copy\copy_3232.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\copy\copy_6464.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\pad\pad.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\pad\pad_16.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\pad\pad_32.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\pad\pad_64.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\pad\pad_3232.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\pad\pad_6464.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\padtranspose\padtranspose.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\padtranspose\padtranspose_16.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\padtranspose\padtranspose_32.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\padtranspose\padtranspose_64.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\padtranspose\padtranspose_3232.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\padtranspose\padtranspose_6464.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\transpose\transpose.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\transpose\transpose_16.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\transpose\transpose_32.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\transpose\transpose_64.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\transpose\transpose_3232.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\transpose\transpose_6464.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xaxpy\xaxpy.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xaxpy\xaxpy_16.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xaxpy\xaxpy_32.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xaxpy\xaxpy_64.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xaxpy\xaxpy_3232.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xaxpy\xaxpy_6464.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xdot\xdot.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xdot\xdot_16.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xdot\xdot_32.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xdot\xdot_64.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xdot\xdot_3232.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xdot\xdot_6464.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemm\xgemm.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemm\xgemm_16.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemm\xgemm_32.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemm\xgemm_64.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemm\xgemm_3232.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemm\xgemm_6464.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemm_direct\xgemm_direct.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemm_direct\xgemm_direct_16.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemm_direct\xgemm_direct_32.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemm_direct\xgemm_direct_64.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemm_direct\xgemm_direct_3232.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemm_direct\xgemm_direct_6464.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemv\xgemv.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemv\xgemv_16.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemv\xgemv_32.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemv\xgemv_64.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemv\xgemv_3232.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemv\xgemv_6464.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemv_fast\xgemv_fast.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemv_fast\xgemv_fast_16.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemv_fast\xgemv_fast_32.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemv_fast\xgemv_fast_64.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemv_fast\xgemv_fast_3232.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemv_fast\xgemv_fast_6464.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemv_fast_rot\xgemv_fast_rot.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemv_fast_rot\xgemv_fast_rot_16.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemv_fast_rot\xgemv_fast_rot_32.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemv_fast_rot\xgemv_fast_rot_64.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemv_fast_rot\xgemv_fast_rot_3232.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xgemv_fast_rot\xgemv_fast_rot_6464.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xger\xger.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xger\xger_16.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xger\xger_32.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xger\xger_64.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xger\xger_3232.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GPU Code\CLBlast\src\database\kernels\xger\xger_6464.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\GPU Code\CLBlast\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{1735237C-E580-392E-BDD9-E1BDF048ABAC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{41E2707F-E7CE-3F5E-9D08-E3E1CAEBCF5F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

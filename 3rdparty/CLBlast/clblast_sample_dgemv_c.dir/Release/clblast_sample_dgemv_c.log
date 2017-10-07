@@ -1,0 +1,4 @@
+﻿  Building Custom Rule C:/GPU Code/CLBlast/CMakeLists.txt
+  CMake does not need to re-run because C:/GPU Code/YoloOCLInference/3rdparty/CLBlast/CMakeFiles/generate.stamp is up-to-date.
+  dgemv.c
+  clblast_sample_dgemv_c.vcxproj -> C:\GPU Code\YoloOCLInference\3rdparty\CLBlast\Release\clblast_sample_dgemv_c.exe

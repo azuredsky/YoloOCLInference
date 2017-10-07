@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\OpenCL">
+      <UniqueIdentifier>{b68b4aff-8cf9-49a6-8b53-4e46a7d9b30a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\OpenCL\Utilities">
+      <UniqueIdentifier>{06577b19-45a6-4fe4-820c-def7bc37bfb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utitlites">
+      <UniqueIdentifier>{465cf88b-3ae7-4bb0-bc30-ec66a75fb4d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernels">
+      <UniqueIdentifier>{11bdde57-4581-45ad-89ec-848356091c0e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\YoloOCLMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\VideoProcessing\YoloOCLDNN.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\OpenCL\OCLManager.cpp">
+      <Filter>Source Files\OpenCL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\OpenCL\cl_wrapper.cpp">
+      <Filter>Source Files\OpenCL\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\OpenCL\clutils.cpp">
+      <Filter>Source Files\OpenCL\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\OpenCL\helpers.cpp">
+      <Filter>Source Files\OpenCL\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\OpenCL\image2D.cpp">
+      <Filter>Source Files\OpenCL\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\OpenCL\iv_common.cpp">
+      <Filter>Source Files\OpenCL\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\OpenCL\kernel_launcher.cpp">
+      <Filter>Source Files\OpenCL\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\OpenCL\oclUtils.cpp">
+      <Filter>Source Files\OpenCL\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\OpenCL\program.cpp">
+      <Filter>Source Files\OpenCL\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\OpenCL\sampler.cpp">
+      <Filter>Source Files\OpenCL\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\OpenCL\shrUtils.cpp">
+      <Filter>Source Files\OpenCL\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utilities\InitUtils.cpp">
+      <Filter>Source Files\Utitlites</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\OpenCL\buffer.cpp">
+      <Filter>Source Files\OpenCL\Utilities</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\VideoProcessing\include\YoloOCLDNN.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utilities\include\GlobalDefines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utilities\include\InitUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\OpenCL\include\cl_wrapper.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\OpenCL\include\clutils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\OpenCL\include\helpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\OpenCL\include\image2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\OpenCL\include\iv_common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\OpenCL\include\kernel_launcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\OpenCL\include\OCLManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\OpenCL\include\oclUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\OpenCL\include\program.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\OpenCL\include\sampler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\OpenCL\include\shrUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\CLBlast\include\clblast.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\Kernels\DeepNNFP32.cl">
+      <Filter>Kernels</Filter>
+    </None>
+    <None Include="..\src\Kernels\DeepNNFP16.cl">
+      <Filter>Kernels</Filter>
+    </None>
+  </ItemGroup>
+</Project>

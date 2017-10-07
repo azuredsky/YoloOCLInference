@@ -1,0 +1,64 @@
+﻿  Building Custom Rule C:/GPU Code/CLBlast/CMakeLists.txt
+  CMake does not need to re-run because C:/GPU Code/YoloOCLInference/3rdparty/CLBlast/CMakeFiles/generate.stamp is up-to-date.
+  database.cpp
+  common.cpp
+  clblast_exceptions.cpp
+  utilities.cpp
+  cache.cpp
+  clblast.cpp
+  clblast_c.cpp
+  routine.cpp
+  xinvert.cpp
+  xswap.cpp
+  xscal.cpp
+  xcopy.cpp
+  xaxpy.cpp
+  xdot.cpp
+  xdotu.cpp
+  xdotc.cpp
+  xnrm2.cpp
+  xasum.cpp
+  xamax.cpp
+  xgemv.cpp
+  Generating Code...
+  Compiling...
+  xgbmv.cpp
+  xhemv.cpp
+  xhbmv.cpp
+  xhpmv.cpp
+  xsymv.cpp
+  xsbmv.cpp
+  xspmv.cpp
+  xtrmv.cpp
+  xtbmv.cpp
+  xtpmv.cpp
+  xtrsv.cpp
+  xger.cpp
+  xgeru.cpp
+  xgerc.cpp
+  xher.cpp
+  xhpr.cpp
+  xher2.cpp
+  xhpr2.cpp
+  xsyr.cpp
+  xspr.cpp
+  Generating Code...
+  Compiling...
+  xsyr2.cpp
+  xspr2.cpp
+  xgemm.cpp
+  xsymm.cpp
+  xhemm.cpp
+  xsyrk.cpp
+  xherk.cpp
+  xsyr2k.cpp
+  xher2k.cpp
+  xtrmm.cpp
+  xtrsm.cpp
+  xomatcopy.cpp
+  xim2col.cpp
+  xaxpybatched.cpp
+  xgemmbatched.cpp
+  Generating Code...
+     Creating library C:/GPU Code/YoloOCLInference/3rdparty/CLBlast/Release/clblast.lib and object C:/GPU Code/YoloOCLInference/3rdparty/CLBlast/Release/clblast.exp
+  clblast.vcxproj -> C:\GPU Code\YoloOCLInference\3rdparty\CLBlast\Release\clblast.dll
