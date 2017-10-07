@@ -71,7 +71,8 @@ The **3rdparty** folder contains readily usable headers & libraries hatare requi
   
   > YoloOCLInference.exe -input <image> -display <0/1> - save <0/1>
     
- eg:  > YoloOCLInference.exe -input pedestrians.jpg -display 1 -save 0
+ eg:  
+ > YoloOCLInference.exe -input pedestrians.jpg -display 1 -save 0
  The above command will make the executable load 'pedestrians.jpg' image available in build directory and run inference on it. Here, the output display is enabled with option **-display 1**, so an OpenCV window will display the detected output as above. Notice that **-save** option is set to 0, meaning the detected output frames will not be saved to fisk. In case the **-save** option is set to 1, the frames with detections will be written to disk in a folder named **output** within build directory.
  
 If you want to let the engine free-flow without any display or saving options, the benchmarks reported here can be reproduced. 
