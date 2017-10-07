@@ -2,10 +2,6 @@
 
 A very light weight inference engine of 'tiny-yolo' object detection system for OpenCL based graphics cards/devices. For original work, ideas and implementation, refer to main author's page [here](https://pjreddie.com/darknet/)
 
-Inference speed - Display disabled|
-:-------------------------:|
-:![](https://github.com/sat8/YoloOCLInference/blob/master/Capture.jpg)|
-
 Output with display enabled|
 :-------------------------:|
 :![](https://github.com/sat8/YoloOCLInference/blob/master/frame_000006.jpg)|
@@ -16,14 +12,19 @@ This project has been deveoped to adapt 'tiny-YOlO' object detection system for 
 
 ## Key features
 1. Achieves run time speeds of **~208 frames per second** on GTX 1080 Ti & **~73** frames per second on AMD RX580.
+
+Inference speed - Display disabled|
+:-------------------------:|
+:![](https://github.com/sat8/YoloOCLInference/blob/master/Capture.jpg)|
+
 2. Implemented entirely in C++. No depenceny on exsting DNN frameworks.
 3. Optimizations include 
-  * Use of Swap buffers in convolutional layers to clear outputs in activation stages.
-  * Addition of two im2col kernels for 3x3 & 1x1 variants
-  * Folding batch normalization into convolutional layer output calculations. See http://machinethink.net/blog/object-detection-with-yolo/ 
-  * Far less branched calculations in kernels comapred to original CUDA version
-  * Linear activation has been altogether disabled. Output stays untouched once bias is added to GEMM output.
-  * Loop unrolling where ever applicable. 
+   * Use of Swap buffers in convolutional layers to clear outputs in activation stages.
+   * Addition of two im2col kernels for 3x3 & 1x1 variants
+   * Folding batch normalization into convolutional layer output calculations. See http://machinethink.net/blog/object-detection-with-yolo/ 
+   * Far less branched calculations in kernels comapred to original CUDA version
+   * Linear activation has been altogether disabled. Output stays untouched once bias is added to GEMM output.
+   * Loop unrolling where ever applicable. 
 4. Uses [cairo graphics](https://wiki.gnome.org/Projects/gtkmm/MSWindows) to render overlay of text
 5. Far less memory footprint compared to original CUDA version. 
 
