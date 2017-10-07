@@ -101,9 +101,9 @@ Following are some of the limitations in YoloOCLInference application
 
 ## Acknowledgements
 Thanks to the following repos & their authors for their work & support.
-https://github.com/pjreddie/darknet
-https://github.com/CNugteren/CLBlast
-https://github.com/AlexeyAB/darknet
+* https://github.com/pjreddie/darknet
+* https://github.com/CNugteren/CLBlast
+* https://github.com/AlexeyAB/darknet
 
 
 
