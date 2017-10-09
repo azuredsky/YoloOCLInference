@@ -1,6 +1,6 @@
 # YOLO OpenCL Inference Engine
 
-A very light weight inference engine of **tiny-YOLO** object detection system for OpenCL based graphics cards/devices. For original work and CUDA implementation, refer to main author's page [here](https://pjreddie.com/darknet/).
+A very light weight inference engine of **tiny-YOLO** object detection system for OpenCL based graphics cards/devices. For CUDA implementation, refer to page [here](https://pjreddie.com/darknet/).
 
 Example output with display enabled|
 :-------------------------:|
