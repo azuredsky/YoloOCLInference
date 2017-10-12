@@ -17,23 +17,31 @@ Inference speed - Display disabled|
 :-------------------------:|
 :![](https://github.com/sat8/YoloOCLInference/blob/master/Capture.jpg)|
 
-2. Implemented entirely in C++. No depenceny on exsting DNN frameworks.
+2. Implemented entirely in C++. No dependency on existing DNN frameworks.
 3. Optimizations include 
    * Use of Swap buffers in convolutional layers to clear outputs in activation stages.
-   * Addition of two im2col kernels for 3x3 & 1x1 variants
+   * Addition of two im2col kernels, one each for 3x3 & 1x1 variants
    * Folding batch normalization into convolutional layer output calculations. See http://machinethink.net/blog/object-detection-with-yolo/ 
-   * Far less branched calculations in kernels comapred to original CUDA version
+   * Far less branched calculations in kernels compared to original CUDA version
    * Linear activation has been altogether disabled. Output stays untouched once bias is added to GEMM output.
    * Loop unrolling where ever applicable. 
 4. Uses [cairo graphics](https://wiki.gnome.org/Projects/gtkmm/MSWindows) to render overlay of text
 5. Far less memory footprint compared to original CUDA version. 
 
 ## Dependencies
-1. VC++ 2015
-2. OpenCV 2.4.9
-3. Gtkmm
-4. NVIDIA Computing tool kit v8.0 (OpenCL libraries references)
-5. [CLBLast](https://github.com/CNugteren/CLBlast) - Excellent BLAS library for OpenCL enabled hardware.
+1. CMake 3.8.11 (May work with older versions)
+2. VC++ 2015
+3. OpenCV 2.4.9
+4. Gtkmm. Download installer from [here](http://ftp.gnome.org/pub/GNOME/binaries/win64/gtkmm/2.22/gtkmm-win64-devel-2.22.0-2.exe)
+5. NVIDIA Computing tool kit v8.0 (OpenCL library references)
+6. [CLBLast](https://github.com/CNugteren/CLBlast) - Excellent BLAS library for OpenCL enabled hardware.
+
+## Compilation
+
+	mkdir build
+	cd build
+	cmake .. -G "Visual Studio 14 2015 Win64"
+	cmake --build . --target ALL_BUILD --config Release
 
 ### Folder structure:
 
@@ -94,7 +102,7 @@ Following are some of the limitations in YoloOCLInference application
 * Sometimes, there is a scaling/shift error on the bounding boxes overlaid around objects.
 
 ## Future work
-* Support cross compilation in Linux & Windows using CMake
+* Support compilation in Linux using CMake
 * Support Video file and folder/batch input of images
 * Support storing output video to disk
 * Build a reusable API that supports RAW image input and file input (both video & image). The RAW image input is expected to be very useful in feeding hardware accelerated decoder output from either the same GPU (NVIDIA, AMD, ARM chips) or host CPU (Intel Quick Sync).
