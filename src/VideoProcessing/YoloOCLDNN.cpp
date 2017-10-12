@@ -1091,7 +1091,7 @@ void YOLONeuralNet::ComputeYOLONNOutput(char* inputFile) {
 
 	int BURN_ITERATIONS = 50;
 	int iterIdx = 0;
-	int NUM_ITERATIONS = (ENABLE_DISPLAY == 1) ? 1000 : 1000;
+	int NUM_ITERATIONS = (ENABLE_DISPLAY == 1) ? 5 : 1000;
 	auto timings = std::vector<double>(NUM_ITERATIONS);
 
 	yoloNNCurrentState.m_InputRefGpu = m_OCLManager->InitializeFloatArray(m_ResizedImage->m_DataArray, inputSize);

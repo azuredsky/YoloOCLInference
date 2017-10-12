@@ -82,6 +82,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>..\3rdparty\cairo\include\;..\3rdparty\CLBlast\include\;..\3rdparty\opencv\include\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include;..\src\Utilities\include;..\src\OpenCL\include;..\src\VideoProcessing\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-std=c++11 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>..\3rdparty\cairo\lib\;..\3rdparty\CLBlast\Release\;..\3rdparty\opencv\lib\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -112,11 +113,11 @@ if not exist ..\build\opencv_highgui249.dll copy ..\3rdparty\opencv\bin\opencv_h
 if not exist ..\build\opencv_imgproc249.dll copy ..\3rdparty\opencv\bin\opencv_imgproc249.dll ..\build</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalLibraryDirectories>..\3rdparty\cairo\lib\;C:\Program Files %28x86%29\Visual Leak Detector\lib\Win64;..\3rdparty\CLBlast\lib\;..\3rdparty\opencv\lib\;C:\Program Files %28x86%29\AMD APP SDK\2.9-1\lib\x86_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\3rdparty\cairo\lib\;..\3rdparty\CLBlast\Release\;..\3rdparty\opencv\lib\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>CLBlast.lib;OpenCL.lib;opencv_highgui249.lib;opencv_core249.lib;vld.lib;opencv_imgproc249.lib;cairo.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ClCompile>
-      <AdditionalIncludeDirectories>..\3rdparty\cairo\include\;C:\Program Files %28x86%29\Visual Leak Detector\include;..\3rdparty\CLBlast\include\;..\3rdparty\opencv\include\;C:\Program Files %28x86%29\AMD APP SDK\2.9-1\include;..\src\Utilities\include;..\src\OpenCL\include;..\src\VideoProcessing\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\3rdparty\cairo\include\;..\3rdparty\CLBlast\include\;..\3rdparty\opencv\include\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include;..\src\Utilities\include;..\src\OpenCL\include;..\src\VideoProcessing\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
