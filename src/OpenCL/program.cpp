@@ -21,7 +21,7 @@ int ReadSourceFromFile(const char* fileName, char** source, size_t* sourceSize)
 		*source = new char[*sourceSize];
 		if (*source == NULL)
 		{
-			printf("Error: Couldn't allocate %d bytes for program source from file '%s'.\n", *sourceSize, fileName);
+			printf("Error: Couldn't allocate %d bytes for program source from file '%s'.\n", (int)(*sourceSize), fileName);
 			errorCode = CL_OUT_OF_HOST_MEMORY;
 		}
 		else {

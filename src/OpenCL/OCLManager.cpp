@@ -264,7 +264,7 @@ float OCLManager::ComputeGEMM(bool isATransponsed, bool isBTransposed, const siz
 		}
 	}
 
-	return total;
+	return (float)total;
 }
 
 float OCLManager::BatchNorm(OCLBuffer *x, OCLBuffer *mean, OCLBuffer *variance, int batch, int filters, int spatial) {

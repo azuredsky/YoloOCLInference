@@ -1775,7 +1775,7 @@ shrBOOL shrCompareL2fe( const float* reference, const float* data,
         return shrFALSE;
     }
     float normError = 0.0f; //sqrtf(error);
-    error = normError / normRef;
+    error = (float)(normError / (normRef + 1e-6));
     bool result = error < epsilon;
 #ifdef _DEBUG
     if( ! result) 

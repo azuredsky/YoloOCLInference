@@ -58,7 +58,7 @@ float KernelLauncher::run(bool profile, bool block)
 	if (status == CL_SUCCESS && block)
 		clFinish(*_pQueue);
 
-	if (profile & status == CL_SUCCESS) {
+	if (profile && status == CL_SUCCESS) {
 
 		clWaitForEvents(1, &execEvent);
 		long long start, end;
@@ -81,7 +81,7 @@ float KernelLauncher::run(bool profile, bool block)
 	}
 
 	//DEBUG_CL(status);
-	return total;
+	return (float)total;
 }
 KernelLauncher& KernelLauncher::global(const int g) {
     if (_dimensions == -1) _dimensions = 1;

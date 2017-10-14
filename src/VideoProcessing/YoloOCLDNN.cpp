@@ -149,13 +149,13 @@ bool YOLONeuralNet::ParseNetworkConfiguration() {
 	m_YOLODeepNN->m_Layers = (StructYOLODeepNNLayer*)calloc(m_YOLODeepNN->m_TotalLayers, sizeof(StructYOLODeepNNLayer));
 
 	m_YOLODeepNN->m_GpuIndex = 0; // TODO : Pass this as part of configuration
-	m_YOLODeepNN->m_BatchSize = m_IniReader->GetDoubleValue("net", "batch", 1);
-	int subDivs = m_IniReader->GetDoubleValue("net", "subdivisions", 1);
-	m_YOLODeepNN->m_TimeSteps = m_IniReader->GetDoubleValue("net", "time_steps", 1);
-	m_YOLODeepNN->m_H = m_IniReader->GetDoubleValue("net", "height", 0);
-	m_YOLODeepNN->m_W = m_IniReader->GetDoubleValue("net", "width", 0);
-	m_YOLODeepNN->m_C = m_IniReader->GetDoubleValue("net", "channels", 0);
-	m_YOLODeepNN->m_Inputs = m_IniReader->GetDoubleValue("net", "inputs", m_YOLODeepNN->m_H * m_YOLODeepNN->m_W * m_YOLODeepNN->m_C);
+	m_YOLODeepNN->m_BatchSize = (int)m_IniReader->GetDoubleValue("net", "batch", 1);
+	int subDivs = (int)m_IniReader->GetDoubleValue("net", "subdivisions", 1);
+	m_YOLODeepNN->m_TimeSteps = (int)m_IniReader->GetDoubleValue("net", "time_steps", 1);
+	m_YOLODeepNN->m_H = (int)m_IniReader->GetDoubleValue("net", "height", 0);
+	m_YOLODeepNN->m_W = (int)m_IniReader->GetDoubleValue("net", "width", 0);
+	m_YOLODeepNN->m_C = (int)m_IniReader->GetDoubleValue("net", "channels", 0);
+	m_YOLODeepNN->m_Inputs = (int)m_IniReader->GetDoubleValue("net", "inputs", m_YOLODeepNN->m_H * m_YOLODeepNN->m_W * m_YOLODeepNN->m_C);
 	
 	if (!m_YOLODeepNN->m_Inputs && !(m_YOLODeepNN->m_H && m_YOLODeepNN->m_W && m_YOLODeepNN->m_C)) {
 
@@ -169,10 +169,10 @@ bool YOLONeuralNet::ParseNetworkConfiguration() {
 
 bool YOLONeuralNet::PrepareConvolutionalTypeLayer(int sectionIdx, int layerIdx, StructLayerFeedParams *layerFeedParams) {
 
-	int pad = m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "pad", 0);
-	int padding = m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "padding", 0);
+	int pad = (int)m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "pad", 0);
+	int padding = (int)m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "padding", 0);
 	if (pad)
-		padding = m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "size", 1) / 2;
+		padding = (int)m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "size", 1) / 2;
 
 
 	char activation_s[512];
@@ -180,19 +180,19 @@ bool YOLONeuralNet::PrepareConvolutionalTypeLayer(int sectionIdx, int layerIdx, 
 
 	EnumYOLODeepNNActivationType activation = MapNNLayerActivationStr(activation_s);
 
-	m_YOLODeepNN->m_Layers[layerIdx].m_Flipped = m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "flipped", 0);
+	m_YOLODeepNN->m_Layers[layerIdx].m_Flipped = (int)m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "flipped", 0);
 
 	m_YOLODeepNN->m_Layers[layerIdx].m_LayerType = EnumYOLODeepNNLayerType::YOLO_DNN_LAYER_CONVOLUTIONAL;
 
 	m_YOLODeepNN->m_Layers[layerIdx].m_H = layerFeedParams->m_H;
 	m_YOLODeepNN->m_Layers[layerIdx].m_W = layerFeedParams->m_W;
 	m_YOLODeepNN->m_Layers[layerIdx].m_C = layerFeedParams->m_C;
-	m_YOLODeepNN->m_Layers[layerIdx].m_N = m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "filters", 1);
+	m_YOLODeepNN->m_Layers[layerIdx].m_N = (int)m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "filters", 1);
 	m_YOLODeepNN->m_Layers[layerIdx].m_Batch = layerFeedParams->m_Batch;
-	m_YOLODeepNN->m_Layers[layerIdx].m_Stride = m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "stride", 1); ;
-	m_YOLODeepNN->m_Layers[layerIdx].m_Size = m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "size", 1); ;
+	m_YOLODeepNN->m_Layers[layerIdx].m_Stride = (int)m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "stride", 1); ;
+	m_YOLODeepNN->m_Layers[layerIdx].m_Size = (int)m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "size", 1); ;
 	m_YOLODeepNN->m_Layers[layerIdx].m_Pad = padding;
-	m_YOLODeepNN->m_Layers[layerIdx].m_BatchNormalize = m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "batch_normalize", 0);
+	m_YOLODeepNN->m_Layers[layerIdx].m_BatchNormalize = (int)m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "batch_normalize", 0);
 
 	int weightsLength = m_YOLODeepNN->m_Layers[layerIdx].m_C *
 		m_YOLODeepNN->m_Layers[layerIdx].m_N * m_YOLODeepNN->m_Layers[layerIdx].m_Size *
@@ -202,7 +202,7 @@ bool YOLONeuralNet::PrepareConvolutionalTypeLayer(int sectionIdx, int layerIdx, 
 
 	m_YOLODeepNN->m_Layers[layerIdx].m_Biases = (float*)calloc(m_YOLODeepNN->m_Layers[layerIdx].m_N, sizeof(float));
 
-	float scale = sqrt(2. / (m_YOLODeepNN->m_Layers[layerIdx].m_Size * m_YOLODeepNN->m_Layers[layerIdx].m_Size * m_YOLODeepNN->m_Layers[layerIdx].m_C));
+	float scale = (float)sqrt(2. / (m_YOLODeepNN->m_Layers[layerIdx].m_Size * m_YOLODeepNN->m_Layers[layerIdx].m_Size * m_YOLODeepNN->m_Layers[layerIdx].m_C));
 
 	for (int i = 0; i < weightsLength; ++i)
 		m_YOLODeepNN->m_Layers[layerIdx].m_Weights[i] = scale * rand_uniform(-1, 1);
@@ -266,9 +266,9 @@ bool YOLONeuralNet::PrepareConvolutionalTypeLayer(int sectionIdx, int layerIdx, 
 
 bool YOLONeuralNet::PrepareRegionTypeLayer(int sectionIdx, int layerIdx, StructLayerFeedParams *layerFeedParams) {
 
-	int coords = m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "coords", 4);
-	int classes = m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "classes", 20);
-	int num = m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "num", 1);
+	int coords = (int)m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "coords", 4);
+	int classes = (int)m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "classes", 20);
+	int num = (int)m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "num", 1);
 
 	m_YOLODeepNN->m_Layers[layerIdx].m_LayerType = EnumYOLODeepNNLayerType::YOLO_DNN_LAYER_REGION;
 	m_YOLODeepNN->m_Layers[layerIdx].m_N = num;
@@ -299,7 +299,7 @@ bool YOLONeuralNet::PrepareRegionTypeLayer(int sectionIdx, int layerIdx, StructL
 	srand(0);
 
 
-	m_YOLODeepNN->m_Layers[layerIdx].m_ClassFix = m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "classfix", 0);
+	m_YOLODeepNN->m_Layers[layerIdx].m_ClassFix = (int)m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "classfix", 0);
 
 	char outStr[512];
 	strcpy(outStr, m_IniReader->GetValue((char*)m_LayerNames[sectionIdx].c_str(), "anchors", ""));
@@ -308,7 +308,7 @@ bool YOLONeuralNet::PrepareRegionTypeLayer(int sectionIdx, int layerIdx, StructL
 
 	if (a) {
 
-		int len = strlen(a);
+		int len = (int)strlen(a);
 		int n = 1;
 		int i;
 		for (i = 0; i < len; ++i) {
@@ -319,7 +319,7 @@ bool YOLONeuralNet::PrepareRegionTypeLayer(int sectionIdx, int layerIdx, StructL
 
 		for (i = 0; i < n; ++i) {
 
-			float bias = atof(a);
+			float bias = (float)atof(a);
 			m_YOLODeepNN->m_Layers[layerIdx].m_Biases[i] = bias;
 			a = strchr(a, ',') + 1;
 		}
@@ -330,9 +330,9 @@ bool YOLONeuralNet::PrepareRegionTypeLayer(int sectionIdx, int layerIdx, StructL
 
 bool YOLONeuralNet::PrepareMaxpoolTypeLayer(int sectionIdx, int layerIdx, StructLayerFeedParams *layerFeedParams) {
 
-	int stride = m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "stride", 1);
-	int size = m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "size", stride);
-	int padding = m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "padding", (size - 1) / 2);
+	int stride = (int)m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "stride", 1);
+	int size = (int)m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "size", stride);
+	int padding = (int)m_IniReader->GetDoubleValue((char*)m_LayerNames[sectionIdx].c_str(), "padding", (size - 1) / 2);
 
 	m_YOLODeepNN->m_Layers[layerIdx].m_LayerType = EnumYOLODeepNNLayerType::YOLO_DNN_LAYER_MAXPOOL;
 	m_YOLODeepNN->m_Layers[layerIdx].m_Batch = layerFeedParams->m_Batch;
@@ -403,8 +403,8 @@ bool YOLONeuralNet::ParseNNLayers() {
 		}
 
 		
-		m_YOLODeepNN->m_Layers[layerCount].m_DontLoad = m_IniReader->GetDoubleValue((char*)m_LayerNames[i].c_str(), "dontload", 0);
-		m_YOLODeepNN->m_Layers[layerCount].m_DontLoadScales = m_IniReader->GetDoubleValue((char*)m_LayerNames[i].c_str(), "dontloadscales", 0);
+		m_YOLODeepNN->m_Layers[layerCount].m_DontLoad = (int)m_IniReader->GetDoubleValue((char*)m_LayerNames[i].c_str(), "dontload", 0);
+		m_YOLODeepNN->m_Layers[layerCount].m_DontLoadScales = (int)m_IniReader->GetDoubleValue((char*)m_LayerNames[i].c_str(), "dontloadscales", 0);
 		
 		if (m_YOLODeepNN->m_Layers[layerCount].m_Workspace_Size > workspaceSize)
 			workspaceSize = m_YOLODeepNN->m_Layers[layerCount].m_Workspace_Size;
@@ -563,8 +563,6 @@ bool YOLONeuralNet::Initialize() {
 }
 
 void YOLONeuralNet::Finalize() {
-
-	StructPinnedOCLBuffer *inBuffer;
 
 	if (m_YOLODeepNN->m_Workspace != NULL) {
 
@@ -906,7 +904,7 @@ bool YOLONeuralNet::LoadInputImage(char const* fileName) {
 	for (int k = 0; k < c; ++k) {
 		for (int i = 0; i < h; ++i) {
 			for (int j = 0; j < w; ++j) {
-				m_InImage->m_DataArray[count++] = data[i*step + j*c + k] / 255.;
+				m_InImage->m_DataArray[count++] = (float)(data[i*step + j*c + k] / 255.);
 			}
 		}
 	}
@@ -926,8 +924,8 @@ bool YOLONeuralNet::LoadInputImage(char const* fileName) {
 float get_color(int c, int x, int max) {
 
 	float ratio = ((float)x / max) * 5;
-	int i = floor(ratio);
-	int j = ceil(ratio);
+	int i = (int)floor(ratio);
+	int j = (int)ceil(ratio);
 	ratio -= i;
 	float r = (1 - ratio) * BBOX_COLORS[i][c] + ratio*BBOX_COLORS[j][c];
 	//printf("%f\n", r);
@@ -963,7 +961,7 @@ void DrawDetections(StructImage *im, int num, float thresh, StructDetectionBBox 
 
 		if (prob > thresh) {
 
-			int width = im->m_H * .009;
+			int width = (int)(im->m_H * .009);
 
 			//if(ENABLE_DISPLAY == 1)
 				//printf("%s: %.0f%%\n", names[classidx].c_str(), prob * 100);
@@ -979,10 +977,10 @@ void DrawDetections(StructImage *im, int num, float thresh, StructDetectionBBox 
 			rgb[2] = blue;
 			StructDetectionBBox b = boxes[i];
 
-			int left = (b.m_X - b.m_W / 2.) * im->m_W;
-			int right = (b.m_X + b.m_W / 2.) * im->m_W;
-			int top = (b.m_Y - b.m_H / 2.) * im->m_H;
-			int bot = (b.m_Y + b.m_H / 2.) * im->m_H;
+			int left = (int)(b.m_X - b.m_W / 2.) * im->m_W;
+			int right = (int)(b.m_X + b.m_W / 2.) * im->m_W;
+			int top = (int)(b.m_Y - b.m_H / 2.) * im->m_H;
+			int bot = (int)(b.m_Y + b.m_H / 2.) * im->m_H;
 			 
 			if (left < 0) left = 0;
 			if (right > im->m_W - 1) right = im->m_W - 1;
@@ -1159,7 +1157,7 @@ void YOLONeuralNet::ComputeYOLONNOutput(char* inputFile) {
 
 	if (NUM_ITERATIONS > BURN_ITERATIONS) {
 	
-		float avgSpeed = std::accumulate(timings.begin() + BURN_ITERATIONS, timings.end(), 0.0) / (timings.size() - BURN_ITERATIONS);
+		float avgSpeed = (float)std::accumulate(timings.begin() + BURN_ITERATIONS, timings.end(), 0.0) / (timings.size() - BURN_ITERATIONS);
 		printf("\n****** YOLO DNN Avg Proc Speed {Time, FPS} : {%f, %f} ******\n\n", avgSpeed, 1000 / avgSpeed);
 	}
 
@@ -1220,7 +1218,7 @@ float YOLONeuralNet::PropagateLayerInputsForward(StructYOLODeepNNLayer *inLayer,
 	unsigned int outsize = 0;
 	
 	float timeAccumulator = 0.0f;
-	char debugFileName[256];
+	//char debugFileName[256];
 	//const auto start_time = std::chrono::steady_clock::now();
 
 	switch (inLayer->m_LayerType) {

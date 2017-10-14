@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
 
 	for (int i = 1; i < argc; i++) {
 
-		if (stricmp(argv[i], "-input") == 0) {
+		if (strcmp(argv[i], "-input") == 0) {
 
 			if (++i >= argc) {
 
@@ -56,7 +56,7 @@ int main(int argc, char* argv[]) {
 			}
 			strcpy(inputImage, argv[i]);
 		}
-		else if (stricmp(argv[i], "-display") == 0) {
+		else if (strcmp(argv[i], "-display") == 0) {
 
 			if (++i >= argc || sscanf(argv[i], "%d", &enableDisplay) != 1) {
 
@@ -64,7 +64,7 @@ int main(int argc, char* argv[]) {
 				return -1;
 			}
 		}
-		else if (stricmp(argv[i], "-save") == 0) {
+		else if (strcmp(argv[i], "-save") == 0) {
 
 			if (++i >= argc || sscanf(argv[i], "%d", &saveOutput) != 1) {
 
@@ -84,7 +84,8 @@ int main(int argc, char* argv[]) {
 	sprintf(configFile, "%s\\tiny-yolo.cfg", currentDir.c_str());
 	sprintf(weightsFile, "%s\\tiny-yolo.weights", currentDir.c_str());
 	
-	m_YOLODeepNNObj = new YOLONeuralNet(labelsFile, configFile, weightsFile, enableDisplay, saveOutput);
+	m_YOLODeepNNObj = new YOLONeuralNet(labelsFile, configFile, weightsFile, 
+		(enableDisplay == 1)?true:false, (saveOutput == 1)?true:false);
 	m_YOLODeepNNObj->Initialize();
 	m_YOLODeepNNObj->ComputeYOLONNOutput(inputImage);
 
