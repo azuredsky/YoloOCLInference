@@ -28,7 +28,7 @@ limitations under the License.*/
 #include <omp.h> 
 #include <numeric>
 #include <cairo.h>
-#include "InitUtils.h"
+#include "SimpleIni.h"
 #include "OCLManager.h"
 #include "opencv2/core/core.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
@@ -199,7 +199,7 @@ private:
 	char						m_WeightsFile[512];
 
 	std::vector<std::string>	m_LayerNames;
-	CIniReader					*m_IniFileReader;
+	CSimpleIniA					*m_IniReader;
 
 	StructYOLODeepNN			*m_YOLODeepNN;
 	OCLManager					*m_OCLManager;

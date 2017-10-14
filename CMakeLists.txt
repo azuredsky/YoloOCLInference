@@ -98,7 +98,6 @@ find_package(OpenCL REQUIRED)
 set(SOURCES
   src/YoloOCLMain.cpp
   src/VideoProcessing/YoloOCLDNN.cpp
-  src/Utilities/InitUtils.cpp
   src/OpenCL/buffer.cpp
   src/OpenCL/cl_wrapper.cpp
   src/OpenCL/clutils.cpp
@@ -113,7 +112,7 @@ set(SOURCES
 set(HEADERS  # such that they can be discovered by IDEs such as CLion and Visual Studio
   src/VideoProcessing/include/YoloOCLDNN.h
   src/Utilities/include/GlobalDefines.h
-  src/Utilities/include/InitUtils.h
+  src/Utilities/include/SimpleIni.h
   src/OpenCL/include/cl_wrapper.hpp
   src/OpenCL/include/buffer.h
   src/OpenCL/include/clutils.h
@@ -130,7 +129,7 @@ link_directories(3rdparty/opencv/lib/ 3rdparty/clblast/Release 3rdparty/cairo/li
 
 # Creates and links the library
 add_executable(YoloOCLInference ${SOURCES} ${HEADERS})
-target_link_libraries(YoloOCLInference ${OpenCL_LIBRARIES} clblast opencv_core249 opencv_highgui249 opencv_imgproc249 cairo shlwapi )
+target_link_libraries(YoloOCLInference ${OpenCL_LIBRARIES} clblast opencv_core249 opencv_highgui249 opencv_imgproc249 cairo)
 
 add_custom_command(TARGET YoloOCLInference PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/data $<TARGET_FILE_DIR:YoloOCLInference>)
 add_custom_command(TARGET YoloOCLInference PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/src/kernels $<TARGET_FILE_DIR:YoloOCLInference>)

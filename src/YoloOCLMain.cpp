@@ -15,15 +15,22 @@ limitations under the License.*/
 
 
 #include <stdio.h>
-#include <windows.h>
-#include "Shlwapi.h"
 #include "YoloOCLDNN.h"
 
+
 #ifdef _DEBUG
-#include <vld.h>
+//#include <vld.h>
 #endif
 
+
 YOLONeuralNet	*m_YOLODeepNNObj;
+
+
+inline bool FileExists(const std::string& name) {
+	ifstream f(name.c_str());
+	return f.good();
+}
+
 
 int main(int argc, char* argv[]) {
 
@@ -66,8 +73,8 @@ int main(int argc, char* argv[]) {
 			}
 		}
 	}
-	
-	if (!PathFileExists(inputImage)) {
+
+	if (!FileExists(inputImage)) {
 
 		printf("ERROR - Input file is not valid. Terminating...\n");
 		return -1;
