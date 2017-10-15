@@ -6,8 +6,7 @@ int ReadSourceFromFile(const char* fileName, char** source, size_t* sourceSize)
 {
 	int errorCode = CL_SUCCESS;
 
-	FILE* fp = NULL;
-	fopen_s(&fp, fileName, "rb");
+	FILE* fp = fopen(fileName, "rb");
 	if (fp == NULL)
 	{
 		printf("Error: Couldn't find program source file '%s'.\n", fileName);
