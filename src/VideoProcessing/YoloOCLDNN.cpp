@@ -867,13 +867,21 @@ bool YOLONeuralNet::LoadInputImage(char const* fileName) {
 	else
 		fprintf(stderr, "OpenCV can't force load with %d channels\n", channels);
 
-	if (m_CurrentIplImage != NULL) {
+	/*if (m_CurrentIplImage != NULL) {
 
 		cvReleaseImage(&m_CurrentIplImage);
 		m_CurrentIplImage = NULL;
-	}
+	}*/
 
-	if ((m_CurrentIplImage = cvLoadImage(fileName, flag)) == 0) {
+	//if (m_CurrentImage != NULL) {
+	if(m_CurrentImage.data != NULL)
+		m_CurrentImage.release();
+
+	//}
+
+	//if ((m_CurrentIplImage = cvLoadImage(fileName, flag)) == 0) {
+	m_CurrentImage = cv::imread(std::string(fileName));
+	if(m_CurrentImage.data == NULL) {
 
 		fprintf(stderr, "Cannot load image \"%s\"\n", fileName);
 		char buff[256];
@@ -883,11 +891,16 @@ bool YOLONeuralNet::LoadInputImage(char const* fileName) {
 	}
 
 	//Taken from https://github.com/pjreddie/darknet.git, Original author of YOLO
-	unsigned char *data = (unsigned char *)m_CurrentIplImage->imageData;
-	int h = m_CurrentIplImage->height;
-	int w = m_CurrentIplImage->width;
-	int c = m_CurrentIplImage->nChannels;
-	int step = m_CurrentIplImage->widthStep;
+	//unsigned char *data = (unsigned char *)m_CurrentIplImage->imageData;
+	unsigned char *data = (unsigned char *)m_CurrentImage.data;
+	//int h = m_CurrentIplImage->height;
+	int h = m_CurrentImage.rows;
+	//int w = m_CurrentIplImage->width;
+	int w = m_CurrentImage.cols;
+	//int c = m_CurrentIplImage->nChannels;
+	int c = m_CurrentImage.channels();
+	//int step = m_CurrentIplImage->widthStep;
+	int step = m_CurrentImage.step;
 
 	if (m_InImage == NULL) {
 
@@ -950,7 +963,7 @@ int max_index(float *a, int n) {
 
 //Taken from https://github.com/pjreddie/darknet.git, Original author of YOLO
 void DrawDetections(StructImage *im, int num, float thresh, StructDetectionBBox *boxes, float **probs, 
-					std::vector<std::string> &names, int classes, IplImage* renderImage) {
+					std::vector<std::string> &names, int classes, cv::Mat &renderMat) { // * renderImage) {
 
 	cv::Rect overlayRect;
 
@@ -963,7 +976,7 @@ void DrawDetections(StructImage *im, int num, float thresh, StructDetectionBBox 
 
 			int width = (int)(im->m_H * .009);
 
-			//if(ENABLE_DISPLAY == 1)
+			//if(m_)
 				//printf("%s: %.0f%%\n", names[classidx].c_str(), prob * 100);
 
 			int offset = classidx * 123457 % classes;
@@ -977,10 +990,10 @@ void DrawDetections(StructImage *im, int num, float thresh, StructDetectionBBox 
 			rgb[2] = blue;
 			StructDetectionBBox b = boxes[i];
 
-			int left = (int)(b.m_X - b.m_W / 2.) * im->m_W;
-			int right = (int)(b.m_X + b.m_W / 2.) * im->m_W;
-			int top = (int)(b.m_Y - b.m_H / 2.) * im->m_H;
-			int bot = (int)(b.m_Y + b.m_H / 2.) * im->m_H;
+			int left = (int)((b.m_X - b.m_W / 2.) * im->m_W);
+			int right = (int)((b.m_X + b.m_W / 2.) * im->m_W);
+			int top = (int)((b.m_Y - b.m_H / 2.) * im->m_H);
+			int bot = (int)((b.m_Y + b.m_H / 2.) * im->m_H);
 			 
 			if (left < 0) left = 0;
 			if (right > im->m_W - 1) right = im->m_W - 1;
@@ -992,7 +1005,8 @@ void DrawDetections(StructImage *im, int num, float thresh, StructDetectionBBox 
 			overlayRect.width = right - left;
 			overlayRect.height = bot - top;
 
-			cv::rectangle((cv::Mat)renderImage, overlayRect, cv::Scalar(blue * 255, green * 255, red * 255), 2);
+			//cv::rectangle((cv::Mat)renderImage, overlayRect, cv::Scalar(blue * 255, green * 255, red * 255), 2);
+			cv::rectangle(renderMat, overlayRect, cv::Scalar(blue * 255, green * 255, red * 255), 2);
 			//draw_box_width(im, left, top, right, bot, width, red, green, blue);
 		}
 	}
@@ -1056,10 +1070,10 @@ void YOLONeuralNet::ComputeYOLONNOutput(char* inputFile) {
 	char overlayDeviceProp[256];
 	char outFolder[256];
 	char outImage[256];
-	IplImage tmpPtr;
+	//IplImage tmpPtr;
 	float threshold = 0.2f;
 	float nms = 0.45f;
-	m_CurrentIplImage = NULL;
+	//m_CurrentIplImage = NULL;
 	
 
 	sprintf(outFolder, "%s\\output", ExePath().c_str());
@@ -1088,7 +1102,8 @@ void YOLONeuralNet::ComputeYOLONNOutput(char* inputFile) {
 	overlayRect.width = m_OverlayMat.cols;
 	overlayRect.height = m_OverlayMat.rows;
 	cv::Mat displayImageMat = cv::Mat(cv::Size(m_InImage->m_W, m_InImage->m_H), CV_8UC3);
-	displayImageMat = cv::cvarrToMat(m_CurrentIplImage, true);
+	//displayImageMat = cv::cvarrToMat(m_CurrentIplImage, true);
+	displayImageMat == m_CurrentImage.clone();
 
 	StructYOLODeepNNState yoloNNCurrentState;
 	memset(&yoloNNCurrentState, 0, sizeof(StructYOLODeepNNState));
@@ -1128,12 +1143,15 @@ void YOLONeuralNet::ComputeYOLONNOutput(char* inputFile) {
 		
 		GetDetectionBBoxes(finalLayer, 1, 1, threshold, detProbScores, detBBoxes, 0, 0);
 		ApplyNMS(detBBoxes, detProbScores, finalLayer->m_W * finalLayer->m_H * finalLayer->m_N, finalLayer->m_Classes, nms);
-		DrawDetections(m_InImage, finalLayer->m_W * finalLayer->m_H * finalLayer->m_N, threshold, detBBoxes, detProbScores, m_ClassLabels, finalLayer->m_Classes, m_CurrentIplImage);
+		DrawDetections(m_InImage, finalLayer->m_W * finalLayer->m_H * finalLayer->m_N, threshold, 
+			detBBoxes, detProbScores, m_ClassLabels, finalLayer->m_Classes, m_CurrentImage);
+		//cv::imwrite("test.jpg", m_CurrentImage);
 		m_OverlayMat.setTo((cv::Scalar)0);
 		sprintf(overlayText, "Inference Duration : %2.2f ms Speed : %2.2f fps", timing, 1000 / timing);
 		PutCairoTimeOverlay(overlayText, cv::Point2d(180, 20), "arial", 15, cv::Scalar(0, 255, 255), false, true);
 		PutCairoTimeOverlay(overlayDeviceProp, cv::Point2d(180, 40), "arial", 15, cv::Scalar(0, 255, 255), false, true);
-		displayImageMat = cv::cvarrToMat(m_CurrentIplImage, true);
+		//displayImageMat = cv::cvarrToMat(m_CurrentIplImage, true);
+		displayImageMat = m_CurrentImage.clone();
 		cv::addWeighted(m_OverlayMat, 1, displayImageMat(overlayRect), 0.5, 0.0, m_OverlayFinalMat);
 		m_OverlayFinalMat += 0.4 * m_OverlayFinalMat;
 		m_OverlayFinalMat.copyTo(displayImageMat(overlayRect));
@@ -1141,8 +1159,9 @@ void YOLONeuralNet::ComputeYOLONNOutput(char* inputFile) {
 		if (m_SaveOutput) {
 		
 			sprintf(outImage, "%s\\frame_%06d.jpg", outFolder, iterIdx);
-			tmpPtr = displayImageMat;
-			cvSaveImage(outImage, &tmpPtr);
+			//tmpPtr = displayImageMat;
+			//cvSaveImage(outImage, &tmpPtr);
+			cv::imwrite(outImage, displayImageMat);
 		}
 
 		if (m_EnableDisplay) {
@@ -1175,11 +1194,14 @@ void YOLONeuralNet::ComputeYOLONNOutput(char* inputFile) {
 	for (int i = 0; i < finalLayer->m_W * finalLayer->m_H * finalLayer->m_N; i++)
 		free(detProbScores[i]);
 
-	if (m_CurrentIplImage != NULL) {
+	//if (m_CurrentIplImage != NULL) {
 
-		cvReleaseImage(&m_CurrentIplImage);
-		m_CurrentIplImage = NULL;
-	}
+		//cvReleaseImage(&m_CurrentIplImage);
+		//m_CurrentIplImage = NULL;
+	//}
+
+	if (m_CurrentImage.data != NULL)
+		m_CurrentImage.release();
 
 	m_OverlayMat.release();
 	m_OverlayFinalMat.release();

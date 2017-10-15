@@ -215,7 +215,7 @@ private:
 	cairo_t						*m_Cairo;
 	cv::Mat						m_CairoTarget;
 	cv::Mat						m_OverlayFinalMat;
-	IplImage					*m_CurrentIplImage;
+	cv::Mat						m_CurrentImage;
 	bool						m_EnableDisplay;
 	bool                        m_SaveOutput;
 

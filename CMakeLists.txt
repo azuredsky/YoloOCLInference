@@ -129,14 +129,19 @@ link_directories(3rdparty/opencv/lib/ 3rdparty/clblast/Release 3rdparty/cairo/li
 
 # Creates and links the library
 add_executable(YoloOCLInference ${SOURCES} ${HEADERS})
-target_link_libraries(YoloOCLInference ${OpenCL_LIBRARIES} clblast opencv_core249 opencv_highgui249 opencv_imgproc249 cairo)
+
+if(MSVC)
+	target_link_libraries(YoloOCLInference ${OpenCL_LIBRARIES} clblast opencv_core330 opencv_highgui330 opencv_imgcodecs330 opencv_imgproc330 cairo)
+endif()
 
 add_custom_command(TARGET YoloOCLInference PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/data $<TARGET_FILE_DIR:YoloOCLInference>)
 add_custom_command(TARGET YoloOCLInference PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/src/kernels $<TARGET_FILE_DIR:YoloOCLInference>)
 
 if(MSVC)
 	add_custom_command(TARGET YoloOCLInference PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/3rdparty/clblast/Release/clblast.dll $<TARGET_FILE_DIR:YoloOCLInference>)
-	add_custom_command(TARGET YoloOCLInference PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/3rdparty/opencv/bin/opencv_core249.dll $<TARGET_FILE_DIR:YoloOCLInference>)
-	add_custom_command(TARGET YoloOCLInference PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/3rdparty/opencv/bin/opencv_highgui249.dll $<TARGET_FILE_DIR:YoloOCLInference>)
-	add_custom_command(TARGET YoloOCLInference PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/3rdparty/opencv/bin/opencv_imgproc249.dll $<TARGET_FILE_DIR:YoloOCLInference>)
+	add_custom_command(TARGET YoloOCLInference PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/3rdparty/opencv/bin/opencv_core330.dll $<TARGET_FILE_DIR:YoloOCLInference>)
+	add_custom_command(TARGET YoloOCLInference PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/3rdparty/opencv/bin/opencv_highgui330.dll $<TARGET_FILE_DIR:YoloOCLInference>)
+	add_custom_command(TARGET YoloOCLInference PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/3rdparty/opencv/bin/opencv_imgproc330.dll $<TARGET_FILE_DIR:YoloOCLInference>)
+	add_custom_command(TARGET YoloOCLInference PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/3rdparty/opencv/bin/opencv_imgcodecs330.dll $<TARGET_FILE_DIR:YoloOCLInference>)
+	add_custom_command(TARGET YoloOCLInference PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/3rdparty/opencv/bin/opencv_videoio330.dll $<TARGET_FILE_DIR:YoloOCLInference>)
 endif()

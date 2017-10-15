@@ -30,6 +30,8 @@
 #ifndef OPENCV_FLANN_AUTOTUNED_INDEX_H_
 #define OPENCV_FLANN_AUTOTUNED_INDEX_H_
 
+#include <sstream>
+
 #include "general.h"
 #include "nn_index.h"
 #include "ground_truth.h"
@@ -81,6 +83,7 @@ public:
         memory_weight_ = get_param(params, "memory_weight", 0.0f);
         sample_fraction_ = get_param(params,"sample_fraction", 0.1f);
         bestIndex_ = NULL;
+        speedup_ = 0;
     }
 
     AutotunedIndex(const AutotunedIndex&);
@@ -99,18 +102,22 @@ public:
      */
     virtual void buildIndex()
     {
+        std::ostringstream stream;
         bestParams_ = estimateBuildParams();
+        print_params(bestParams_, stream);
         Logger::info("----------------------------------------------------\n");
         Logger::info("Autotuned parameters:\n");
-        print_params(bestParams_);
+        Logger::info("%s", stream.str().c_str());
         Logger::info("----------------------------------------------------\n");
 
         bestIndex_ = create_index_by_type(dataset_, bestParams_, distance_);
         bestIndex_->buildIndex();
         speedup_ = estimateSearchParams(bestSearchParams_);
+        stream.str(std::string());
+        print_params(bestSearchParams_, stream);
         Logger::info("----------------------------------------------------\n");
         Logger::info("Search parameters:\n");
-        print_params(bestSearchParams_);
+        Logger::info("%s", stream.str().c_str());
         Logger::info("----------------------------------------------------\n");
     }
 
@@ -270,7 +277,7 @@ private:
     //    struct KMeansSimpleDownhillFunctor {
     //
     //        Autotune& autotuner;
-    //        KMeansSimpleDownhillFunctor(Autotune& autotuner_) : autotuner(autotuner_) {};
+    //        KMeansSimpleDownhillFunctor(Autotune& autotuner_) : autotuner(autotuner_) {}
     //
     //        float operator()(int* params) {
     //
@@ -295,7 +302,7 @@ private:
     //    struct KDTreeSimpleDownhillFunctor {
     //
     //        Autotune& autotuner;
-    //        KDTreeSimpleDownhillFunctor(Autotune& autotuner_) : autotuner(autotuner_) {};
+    //        KDTreeSimpleDownhillFunctor(Autotune& autotuner_) : autotuner(autotuner_) {}
     //
     //        float operator()(int* params) {
     //            float maxFloat = numeric_limits<float>::max();
@@ -373,6 +380,7 @@ private:
         // evaluate kdtree for all parameter combinations
         for (size_t i = 0; i < FLANN_ARRAY_LEN(testTrees); ++i) {
             CostData cost;
+            cost.params["algorithm"] = FLANN_INDEX_KDTREE;
             cost.params["trees"] = testTrees[i];
 
             evaluate_kdtree(cost);
