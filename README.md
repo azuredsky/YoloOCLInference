@@ -31,7 +31,7 @@ Inference speed - Display disabled|
 ## Dependencies
 1. CMake 3.8.11 (May work with older versions)
 2. VC++ 2015
-3. OpenCV 2.4.9
+3. OpenCV 3.3.0
 4. Gtkmm. Download installer from [here](http://ftp.gnome.org/pub/GNOME/binaries/win64/gtkmm/2.22/gtkmm-win64-devel-2.22.0-2.exe)
 5. NVIDIA Computing tool kit v8.0 (OpenCL library references)
 6. [CLBLast](https://github.com/CNugteren/CLBlast) - Excellent BLAS library for OpenCL enabled hardware.
