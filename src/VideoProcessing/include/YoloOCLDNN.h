@@ -237,7 +237,7 @@ private:
 	void GetDetectionBBoxes(StructYOLODeepNNLayer *nnLayer, int w, int h, float thresh, float **probs, StructDetectionBBox *bBoxes, int onlyObjectness, int *map);
 	StructDetectionBBox GetRegionBBox(float *x, float *biases, int n, int index, int i, int j, int w, int h);
 	void ApplyNMS(StructDetectionBBox *boxes, float **probs, int total, int classes, float thresh);
-	void YOLONeuralNet::PutCairoTimeOverlay(std::string const& timeText, cv::Point2d timeCenterPoint, std::string const& fontFace, double fontSize,
+	void PutCairoTimeOverlay(std::string const& timeText, cv::Point2d timeCenterPoint, std::string const& fontFace, double fontSize,
 		cv::Scalar textColor, bool fontItalic, bool fontBold);
 
 public:

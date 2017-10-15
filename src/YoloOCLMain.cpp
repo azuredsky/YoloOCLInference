@@ -36,12 +36,12 @@ int main(int argc, char* argv[]) {
 
 	printf("YoloOCLInference Started..\n");
 
-	char	labelsFile[MAX_PATH];
-	char	configFile[MAX_PATH];
-	char	weightsFile[MAX_PATH];
+	char	labelsFile[FILENAME_MAX];
+	char	configFile[FILENAME_MAX];
+	char	weightsFile[FILENAME_MAX];
 	string	currentDir = ExePath();
 
-	char	inputImage[MAX_PATH];
+	char	inputImage[FILENAME_MAX];
 	int		enableDisplay = 0;
 	int		saveOutput = 0;
 
@@ -80,9 +80,17 @@ int main(int argc, char* argv[]) {
 		return -1;
 	}
 
+#ifdef WIN32
+
 	sprintf(labelsFile, "%s\\coco.names", currentDir.c_str());
 	sprintf(configFile, "%s\\tiny-yolo.cfg", currentDir.c_str());
 	sprintf(weightsFile, "%s\\tiny-yolo.weights", currentDir.c_str());
+#elif __linux__
+
+	strcpy(labelsFile, "coco.names");
+	strcpy(configFile, "tiny-yolo.cfg");
+	strcpy(weightsFile, "tiny-yolo.weights");
+#endif
 	
 	m_YOLODeepNNObj = new YOLONeuralNet(labelsFile, configFile, weightsFile, 
 		(enableDisplay == 1)?true:false, (saveOutput == 1)?true:false);

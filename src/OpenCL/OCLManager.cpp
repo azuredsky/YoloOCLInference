@@ -17,6 +17,9 @@ limitations under the License.*/
 
 #define BLOCK 8
 
+#ifdef WIN32
+
+#include <Windows.h>
 string ExePath() {
 
 	char buffer[MAX_PATH];
@@ -25,6 +28,14 @@ string ExePath() {
 	return string(buffer).substr(0, pos);
 }
 
+#elif __linux__
+
+string ExePath() {
+
+	return "";
+}
+
+#endif
 
 float sec(clock_t clocks) {
 
@@ -65,7 +76,14 @@ OCLManager::~OCLManager() {
 
 int OCLManager::Initialize() {
 
-	std::string file = ExePath() + "\\DeepNNFP32.cl";
+	std::string file;
+	
+#ifdef WIN32
+	file = ExePath() + "\\DeepNNFP32.cl";
+#elif __linux__
+	file = "DeepNNFP32.cl";
+#endif
+
 	std::vector<std::string> kernelFiles;
 	kernelFiles.push_back(file);
 
@@ -76,7 +94,7 @@ int OCLManager::Initialize() {
 	for( int i = 0; i < NN_MAX_KERNEL_COUNT; i++ )
 		m_OpenCLKernels[i] = m_OpenCLProgram->createKernelLauncher(NN_KERNEL_NAMES[i]);
 
-	m_LockMutex = CreateMutex(NULL, FALSE, NULL);
+	//m_LockMutex = CreateMutex(NULL, FALSE, NULL);
 
 	/*if( pthread_mutex_init(&m_LockMutex, NULL) != 0 ) {
 	    printf("ERROR - OCLWrapper::Initialize() Mutex initialization error \n");
@@ -93,11 +111,11 @@ int OCLManager::Initialize() {
 int OCLManager::Finalize() {
 
 	//if(m_LockMutex != NULL)
-	if (m_Status != OCL_STATUS_MUTEX_ERROR) {
+	//if (m_Status != OCL_STATUS_MUTEX_ERROR) {
 	
 		//pthread_mutex_destroy(&m_LockMutex);
-		CloseHandle(m_LockMutex);
-	}
+		//CloseHandle(m_LockMutex);
+	//}
 
 	m_Status = OCL_STATUS_FINALIZED;
 	return m_Status;
@@ -106,13 +124,13 @@ int OCLManager::Finalize() {
 void OCLManager::SetLock() {
 
 	//pthread_mutex_lock(&m_LockMutex);
-	WaitForSingleObject(m_LockMutex, INFINITE);
+	//WaitForSingleObject(m_LockMutex, INFINITE);
 }
 
 void OCLManager::ReleaseLock() {
 
 	//pthread_mutex_unlock(&m_LockMutex);
-	ReleaseMutex(m_LockMutex);
+	//ReleaseMutex(m_LockMutex);
 }
 
 StructPinnedOCLBuffer* OCLManager::InitializePinnedFloatArray(size_t numItems) {

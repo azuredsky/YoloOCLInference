@@ -45,7 +45,7 @@ if(MSVC)
   set(FLAGS "/Ot")
   set(FLAGS "${FLAGS} /wd4715 /D_CRT_SECURE_NO_WARNINGS")
 else()
-  #set(FLAGS "-std=c++11")
+  set(FLAGS "-std=gnu++11")
   if(VERBOSE)
     set(FLAGS "${FLAGS} -O1 -g")
   else()
@@ -92,6 +92,14 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${YoloOCLInference_SOURCE_DIR}/cmake
 # Requires OpenCL. It is found through the included "FindOpenCL.cmake" in CMAKE_MODULE_PATH.
 find_package(OpenCL REQUIRED)
 
+if(!MSVC)
+	find_package(OpenCV REQUIRED)
+	message(STATUS "OpenCV library status:")
+	message(STATUS "    version: ${OpenCV_VERSION}")
+	message(STATUS "    libraries: ${OpenCV_LIBS}")
+	message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
+endif()
+
 # ==================================================================================================
 
 # Gathers all source-files (required for the compiler) and header-files (for IDEs only)
@@ -113,6 +121,7 @@ set(HEADERS  # such that they can be discovered by IDEs such as CLion and Visual
   src/VideoProcessing/include/YoloOCLDNN.h
   src/Utilities/include/GlobalDefines.h
   src/Utilities/include/SimpleIni.h
+  src/Utilities/include/ConvertUTF.h
   src/OpenCL/include/cl_wrapper.hpp
   src/OpenCL/include/buffer.h
   src/OpenCL/include/clutils.h
@@ -124,18 +133,24 @@ set(HEADERS  # such that they can be discovered by IDEs such as CLion and Visual
   src/OpenCL/include/program.h
 )
 
-include_directories(3rdparty/opencv/include/ 3rdparty/clblast/include/ 3rdparty/cairo/include/ src/OpenCL/include/ src/Utilities/include/ src/VideoProcessing/include/ ${OpenCL_INCLUDE_DIRS})
-link_directories(3rdparty/opencv/lib/ 3rdparty/clblast/Release 3rdparty/cairo/lib/)
+if(MSVC)
+	include_directories(3rdparty/opencv/include/ 3rdparty/clblast/include/ 3rdparty/cairo/include/ src/OpenCL/include/ src/Utilities/include/ src/VideoProcessing/include/ ${OpenCL_INCLUDE_DIRS})
+	link_directories(3rdparty/opencv/lib/ 3rdparty/clblast/Release 3rdparty/cairo/lib/)
+else()
+	include_directories(/usr/include/cairo src/OpenCL/include/ src/Utilities/include/ src/VideoProcessing/include/ ${OPENCL_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
+endif()
 
 # Creates and links the library
 add_executable(YoloOCLInference ${SOURCES} ${HEADERS})
 
 if(MSVC)
 	target_link_libraries(YoloOCLInference ${OpenCL_LIBRARIES} clblast opencv_core330 opencv_highgui330 opencv_imgcodecs330 opencv_imgproc330 cairo)
+else()
+	target_link_libraries(YoloOCLInference opencv_core opencv_highgui opencv_imgproc opencv_imgcodecs ${OPENCL_LIBRARIES} clblast cairo )
 endif()
 
 add_custom_command(TARGET YoloOCLInference PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/data $<TARGET_FILE_DIR:YoloOCLInference>)
-add_custom_command(TARGET YoloOCLInference PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/src/kernels $<TARGET_FILE_DIR:YoloOCLInference>)
+add_custom_command(TARGET YoloOCLInference PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/src/Kernels $<TARGET_FILE_DIR:YoloOCLInference>)
 
 if(MSVC)
 	add_custom_command(TARGET YoloOCLInference PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/3rdparty/clblast/Release/clblast.dll $<TARGET_FILE_DIR:YoloOCLInference>)

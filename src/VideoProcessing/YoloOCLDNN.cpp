@@ -15,7 +15,11 @@ limitations under the License.*/
 
 #include "YoloOCLDNN.h"
 
-#define strcpy strcpy_s
+#ifdef __linux__
+#include <sys/stat.h>
+#endif
+
+//#define strcpy strcpy_s
 
 float BBOX_COLORS[6][3] = { { 1,0,1 },{ 0,0,1 },{ 0,1,1 },{ 0,1,0 },{ 1,1,0 },{ 1,0,0 } };
 
@@ -1076,8 +1080,17 @@ void YOLONeuralNet::ComputeYOLONNOutput(char* inputFile) {
 	//m_CurrentIplImage = NULL;
 	
 
+#ifdef WIN32
+
 	sprintf(outFolder, "%s\\output", ExePath().c_str());
 	CreateDirectory(outFolder, NULL);
+#elif __linux__
+
+	strcpy(outFolder, "output");
+	const int dirErr = mkdir(outFolder, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+	if (dirErr == -1) 
+		printf("Error creating directory %s! \n", outFolder);
+#endif
 
 	sprintf(overlayDeviceProp, "Device : %s", m_OCLDeviceName);
 	StructYOLODeepNNLayer *finalLayer = &m_YOLODeepNN->m_Layers[m_YOLODeepNN->m_TotalLayers - 1];

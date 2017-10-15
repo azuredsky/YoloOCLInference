@@ -18,7 +18,7 @@ limitations under the License.*/
 #define INCLUDES_H_
 
 
-#include <Windows.h>
+//#include <Windows.h>
 #include <string.h>
 #include <stdlib.h>
 #include "CL/cl.h"
